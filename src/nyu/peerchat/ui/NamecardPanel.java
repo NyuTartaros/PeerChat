@@ -8,6 +8,7 @@ import nyu.peerchat.entity.Contact;
 import java.awt.Color;
 import java.util.Vector;
 
+import javax.swing.JFrame;
 import javax.swing.JList;
 
 public class NamecardPanel extends JPanel {
@@ -19,8 +20,10 @@ public class NamecardPanel extends JPanel {
 	private JScrollPane scrollPane;
 	private JList contactList;
 	private Vector<Contact> contacts = new Vector<Contact>();
+	private JFrame mainWindow;
 	
-	public NamecardPanel() {
+	public NamecardPanel(JFrame mainWindow) {
+		this.mainWindow = mainWindow;
 		// TODO Auto-generated constructor stub
 		setSize(250, 586);
 		setBackground(new Color(221, 221, 222));

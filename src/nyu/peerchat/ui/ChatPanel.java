@@ -2,6 +2,7 @@ package nyu.peerchat.ui;
 
 import java.awt.Color;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.plaf.SplitPaneUI;
@@ -16,8 +17,10 @@ public class ChatPanel extends JPanel{
 	private JSplitPane splitPane;
 	private MessagePanel messagePanel;
 	private EditPanel editPanel;
+	private JFrame mainWindow;
 	
-	public ChatPanel() {
+	public ChatPanel(JFrame mainWindow) {
+		this.mainWindow = mainWindow;
 		setBounds(0, 0, 503, 586);
 		setLayout(null);
 		setBorder(null);
