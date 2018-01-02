@@ -6,8 +6,6 @@ import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 
 public class LeftPanel extends JPanel {

@@ -2,7 +2,6 @@ package nyu.peerchat.ui;
 
 import java.awt.Color;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.plaf.SplitPaneUI;

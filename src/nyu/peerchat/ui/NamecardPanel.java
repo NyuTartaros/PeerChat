@@ -8,7 +8,6 @@ import nyu.peerchat.entity.Contact;
 import java.awt.Color;
 import java.util.Vector;
 
-import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
