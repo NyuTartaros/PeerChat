@@ -2,6 +2,8 @@ package nyu.peerchat.ui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 import javax.swing.JFrame;
 import javax.swing.JSplitPane;
@@ -9,6 +11,9 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.SplitPaneUI;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
+import javax.xml.ws.Endpoint;
+
+import nyu.peerchat.serverServicesImpl.ServerChatServiceImpl;
 
 public class MainWindow {
 	
@@ -23,6 +28,8 @@ public class MainWindow {
 	private NamecardPanel namecardPanel;
 	private ChatPanel chatPanel;
 	private LeftPanel leftPanel;
+	
+	private String localIp;
 
 	/**
 	 * Launch the application.
@@ -61,6 +68,18 @@ public class MainWindow {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		try {
+			localIp = getLocalIp();
+			//DEBUG
+//			System.out.println(localIp);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String address = "http://"+localIp+":8879/chat";
+		Endpoint.publish(address, new ServerChatServiceImpl());
+		
 		mainFrame = new JFrame();
 		mainFrame.setResizable(false);
 		mainFrame.setBounds(200,70,820,615);
@@ -102,6 +121,10 @@ public class MainWindow {
 	
 	public LeftPanel getLeftPanel(){
 		return leftPanel;
+	}
+	
+	public String getLocalIp() throws UnknownHostException{
+		return InetAddress.getLocalHost().getHostAddress();//获得本机IP  
 	}
 	
 }

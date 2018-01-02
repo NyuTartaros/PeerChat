@@ -18,6 +18,8 @@ public class ServerChatServiceImpl implements ServerChatService {
 	public boolean sendMessage(@WebParam(name="message") String message) {
 		// TODO Auto-generated method stub
 		this.message = message;
+		//DEBUG
+		System.out.println(message);
 		return true;
 	}
 
