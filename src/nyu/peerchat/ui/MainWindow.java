@@ -18,7 +18,7 @@ public class MainWindow {
 	 * @author NyuTartaros
 	 */
 
-	private JFrame frame;
+	private JFrame mainFrame;
 	private JSplitPane splitPane;
 	private NamecardPanel namecardPanel;
 	private ChatPanel chatPanel;
@@ -39,7 +39,7 @@ public class MainWindow {
 			public void run() {
 				try {
 					MainWindow window = new MainWindow();
-					window.frame.setVisible(true);
+					window.mainFrame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,20 +58,20 @@ public class MainWindow {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(200,70,820,615);
+		mainFrame = new JFrame();
+		mainFrame.setResizable(false);
+		mainFrame.setBounds(200,70,820,615);
 //		frame.setLocationRelativeTo(null);
 //		frame.setSize(820, 615);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setBackground(new Color(231, 229, 229));
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.getContentPane().setLayout(null);
+		mainFrame.setBackground(new Color(231, 229, 229));
 		
-		namecardPanel = new NamecardPanel();
-		chatPanel = new ChatPanel();
+		namecardPanel = new NamecardPanel(mainFrame);
+		chatPanel = new ChatPanel(mainFrame);
 		
-		leftPanel = new LeftPanel();
-		frame.add(leftPanel);
+		leftPanel = new LeftPanel(mainFrame);
+		mainFrame.getContentPane().add(leftPanel);
 		
 		splitPane = new JSplitPane();
 		splitPane.setEnabled(false);
@@ -86,6 +86,6 @@ public class MainWindow {
 		if (ui instanceof BasicSplitPaneUI) {    
 		    ((BasicSplitPaneUI) ui).getDivider().setBorder(null);    
 		}    
-		frame.getContentPane().add(splitPane);
+		mainFrame.getContentPane().add(splitPane);
 	}
 }
