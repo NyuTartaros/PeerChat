@@ -11,6 +11,12 @@ import javax.swing.plaf.SplitPaneUI;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 
 public class MainWindow {
+	
+	/**
+	 * 基于P2P匿名通信的高仿微信
+	 * @version 0.1-dev 
+	 * @author NyuTartaros
+	 */
 
 	private JFrame frame;
 	private JSplitPane splitPane;
