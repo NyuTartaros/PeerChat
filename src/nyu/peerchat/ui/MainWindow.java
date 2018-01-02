@@ -72,7 +72,7 @@ public class MainWindow {
 		try {
 			localIp = getLocalIp();
 			//DEBUG
-//			System.out.println(localIp);
+			System.out.println(localIp);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
