@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
+
+import nyu.peerchat.entity.Contact;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -22,6 +25,8 @@ public class EditPanel extends JPanel {
 	private JPanel sendBtnPanel;
 	private JButton sendBtn;
 	private JTextArea textArea;
+	
+	private Contact currentContact;
 	
 	public EditPanel(){
 		setBackground(Color.WHITE);
@@ -81,4 +86,9 @@ public class EditPanel extends JPanel {
 		sendBtnPanel.add(sendBtn);
 		
 	}
+	
+	public void setCurrentContact(Contact currentContact){
+		this.currentContact = currentContact;
+	}
+	
 }

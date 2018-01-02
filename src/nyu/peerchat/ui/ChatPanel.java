@@ -8,6 +8,8 @@ import javax.swing.JSplitPane;
 import javax.swing.plaf.SplitPaneUI;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 
+import nyu.peerchat.entity.Contact;
+
 public class ChatPanel extends JPanel{
 	
 	/**
@@ -17,9 +19,11 @@ public class ChatPanel extends JPanel{
 	private JSplitPane splitPane;
 	private MessagePanel messagePanel;
 	private EditPanel editPanel;
-	private Object mainWindow;
+	private MainWindow mainWindow;
 	
-	public ChatPanel(Object mainWindow) {
+	private Contact currentContact;
+	
+	public ChatPanel(MainWindow mainWindow) {
 		this.mainWindow = mainWindow;
 		setBounds(0, 0, 503, 586);
 		setLayout(null);
@@ -43,4 +47,15 @@ public class ChatPanel extends JPanel{
 		}   
 		add(splitPane);
 	}
+	
+	public Contact getCurrentContact(){
+		return currentContact;
+	}
+	
+	public void setCurrentContact(Contact currentContact){
+		this.currentContact = currentContact;
+		messagePanel.setCurrentContact(currentContact);
+		editPanel.setCurrentContact(currentContact);
+	}
+	
 }

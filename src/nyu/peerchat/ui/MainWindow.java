@@ -2,8 +2,10 @@ package nyu.peerchat.ui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.io.ObjectInputStream.GetField;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -88,4 +90,17 @@ public class MainWindow {
 		}    
 		mainFrame.getContentPane().add(splitPane);
 	}
+	
+	public ChatPanel getChatPanel(){
+		return chatPanel;
+	}
+	
+	public NamecardPanel getNamecardPanel(){
+		return namecardPanel;
+	}
+	
+	public LeftPanel getLeftPanel(){
+		return leftPanel;
+	}
+	
 }

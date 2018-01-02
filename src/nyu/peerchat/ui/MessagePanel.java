@@ -22,7 +22,7 @@ public class MessagePanel extends JPanel {
 	private JLabel lblIp;
 	private JPanel sentMessagePanel;
 	
-	private Contact contact;
+	private Contact currentContact;
 
 	
 	public MessagePanel() {
@@ -54,9 +54,9 @@ public class MessagePanel extends JPanel {
 		add(sentMessagePanel);
 	}
 	
-	public void setContact(Contact contact){
-		this.contact = contact;
-		this.lblAlias.setText(this.contact.getAlias());
-		this.lblIp.setText(this.contact.getIp());
+	public void setCurrentContact(Contact currentContact){
+		this.currentContact = currentContact;
+		this.lblAlias.setText(this.currentContact.getAlias());
+		this.lblIp.setText(this.currentContact.getIp());
 	}
 }

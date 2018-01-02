@@ -23,9 +23,9 @@ public class NamecardPanel extends JPanel {
 	private JScrollPane scrollPane;
 	private JList contactList;
 	private Vector<Contact> contacts = new Vector<Contact>();
-	private Object mainWindow;
+	private MainWindow mainWindow;
 	
-	public NamecardPanel(Object mainWindow) {
+	public NamecardPanel(MainWindow mainWindow) {
 		this.mainWindow = mainWindow;
 		// TODO Auto-generated constructor stub
 		setSize(250, 586);
@@ -56,7 +56,9 @@ public class NamecardPanel extends JPanel {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				// TODO Auto-generated method stub
-				
+				int index = contactList.getSelectedIndex();
+				Contact contact = (Contact) contactList.getModel().getElementAt(index);
+				mainWindow.getChatPanel().setCurrentContact(contact);
 			}
 		});
 		scrollPane.add(contactList);
