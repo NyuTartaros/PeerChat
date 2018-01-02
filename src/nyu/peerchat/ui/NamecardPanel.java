@@ -42,6 +42,9 @@ public class NamecardPanel extends JPanel {
 		contactList.setBounds(0, 0, 250, 586);
 		contactList.setBackground(new Color(221, 221, 222));
 		contactList.setBorder(null);
+		contactList.setCellRenderer(new ContactListCellRender());
+		contactList.setListData(contacts);
+		contactList.setFixedCellHeight(60);
 		scrollPane.add(contactList);
 		
 	}
@@ -52,6 +55,7 @@ public class NamecardPanel extends JPanel {
 	
 	public void addContact(Contact contact){
 		contacts.add(contact);
+		contactList.setListData(contacts);
 	}
 	
 }
