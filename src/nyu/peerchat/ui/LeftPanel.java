@@ -27,13 +27,13 @@ public class LeftPanel extends JPanel {
 		add(toolBar);
 		
 		chatBtn = new JButton("");
-		chatBtn.setIcon(new ImageIcon("F:\\GitHub\\PeerChat\\icons\\chat.png"));
+		chatBtn.setIcon(new ImageIcon("E:\\eclipse-workspace\\PeerChat\\icons\\chat.png"));
 		chatBtn.setBackground(new Color(42, 43, 46));
 		chatBtn.setSize(40, 38);
 		toolBar.add(chatBtn);
 		
 		contactsBtn = new JButton("");
-		contactsBtn.setIcon(new ImageIcon("F:\\GitHub\\PeerChat\\icons\\contacts.png"));
+		contactsBtn.setIcon(new ImageIcon("E:\\eclipse-workspace\\PeerChat\\icons\\contacts.png"));
 		contactsBtn.setBackground(new Color(42, 43, 46));
 		contactsBtn.setSize(40, 38);
 		toolBar.add(contactsBtn);
