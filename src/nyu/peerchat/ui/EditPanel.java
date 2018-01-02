@@ -45,7 +45,8 @@ public class EditPanel extends JPanel {
 				scrollPane.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
 		});
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setHorizontalScrollBarPolicy(
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(0, 0, 503, 145);
 		scrollPane.setBackground(Color.WHITE);
 		scrollPane.setBorder(null);
