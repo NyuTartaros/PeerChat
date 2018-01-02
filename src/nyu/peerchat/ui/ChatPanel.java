@@ -18,7 +18,7 @@ public class ChatPanel extends JPanel{
 	private EditPanel editPanel;
 	
 	public ChatPanel() {
-		setBounds(0, 0, 563, 586);
+		setBounds(0, 0, 503, 586);
 		setLayout(null);
 		setBorder(null);
 		
@@ -27,7 +27,7 @@ public class ChatPanel extends JPanel{
 		
 		splitPane = new JSplitPane();
 		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		splitPane.setBounds(0, 0, 563, 586);
+		splitPane.setBounds(0, 0, 503, 586);
 		splitPane.setDividerSize(1);
 		splitPane.setDividerLocation(400);
 		splitPane.setLeftComponent(messagePanel);

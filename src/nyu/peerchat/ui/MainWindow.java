@@ -16,6 +16,7 @@ public class MainWindow {
 	private JSplitPane splitPane;
 	private NamecardPanel namecardPanel;
 	private ChatPanel chatPanel;
+	private LeftPanel leftPanel;
 
 	/**
 	 * Launch the application.
@@ -60,12 +61,15 @@ public class MainWindow {
 		frame.getContentPane().setLayout(null);
 		frame.setBackground(new Color(231, 229, 229));
 		
+		leftPanel = new LeftPanel();
+		frame.add(leftPanel);
+		
 		namecardPanel = new NamecardPanel();
 		chatPanel = new ChatPanel();
 		
 		splitPane = new JSplitPane();
 		splitPane.setEnabled(false);
-		splitPane.setBounds(0, 0, 814, 586);
+		splitPane.setBounds(60, 0, 754, 586);
 		splitPane.setDividerSize(0);
 		splitPane.setDividerLocation(250);
 		splitPane.setLeftComponent(namecardPanel);

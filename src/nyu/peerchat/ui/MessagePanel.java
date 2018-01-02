@@ -27,11 +27,11 @@ public class MessagePanel extends JPanel {
 	
 	public MessagePanel() {
 		setBackground(new Color(245, 245, 245));
-		setBounds(0, 0, 563, 400);
+		setBounds(0, 0, 503, 400);
 		setLayout(null);
 		
 		headPanel = new JPanel();
-		headPanel.setBounds(0, 0, 563, 70);
+		headPanel.setBounds(0, 0, 503, 70);
 		headPanel.setBackground(new Color(245, 245, 245));
 		headPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, 
 				new Color(221, 221, 222)));
@@ -48,7 +48,7 @@ public class MessagePanel extends JPanel {
 		headPanel.add(lblIp);
 		
 		sentMessagePanel = new JPanel();
-		sentMessagePanel.setBounds(0, 70, 563, 330);
+		sentMessagePanel.setBounds(0, 70, 503, 330);
 		sentMessagePanel.setBackground(new Color(245, 245, 245));
 		sentMessagePanel.setBorder(null);
 		add(sentMessagePanel);

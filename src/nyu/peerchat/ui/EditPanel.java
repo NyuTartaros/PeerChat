@@ -25,7 +25,7 @@ public class EditPanel extends JPanel {
 	
 	public EditPanel(){
 		setBackground(Color.WHITE);
-		setBounds(0, 0, 563, 185);
+		setBounds(0, 0, 503, 185);
 		setBorder(null);
 		setLayout(null);
 		
@@ -41,7 +41,7 @@ public class EditPanel extends JPanel {
 			}
 		});
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(0, 0, 563, 145);
+		scrollPane.setBounds(0, 0, 503, 145);
 		scrollPane.setBackground(Color.WHITE);
 		scrollPane.setBorder(null);
 		add(scrollPane);
@@ -62,13 +62,13 @@ public class EditPanel extends JPanel {
 		textArea.setLineWrap(true);
 		textArea.setTabSize(4);
 		textArea.setBackground(Color.WHITE);
-		textArea.setBounds(0, 0, 563, 145);
+		textArea.setBounds(0, 0, 503, 145);
 		textArea.setBorder(null);
 		scrollPane.setViewportView(textArea);
 		
 		sendBtnPanel = new JPanel();
 		sendBtnPanel.setBackground(Color.WHITE);
-		sendBtnPanel.setBounds(0, 145, 563, 40);
+		sendBtnPanel.setBounds(0, 145, 503, 40);
 		sendBtnPanel.setLayout(null);
 		sendBtnPanel.setBorder(null);
 		add(sendBtnPanel);
@@ -76,7 +76,7 @@ public class EditPanel extends JPanel {
 		sendBtn = new JButton("\u53D1\u9001");
 		sendBtn.setFont(new Font("ËÎÌו", Font.PLAIN, 13));
 		sendBtn.setForeground(Color.GRAY);
-		sendBtn.setBounds(472, 5, 65, 29);
+		sendBtn.setBounds(412, 5, 65, 29);
 		sendBtn.setBackground(new Color(245, 245, 245));
 		sendBtnPanel.add(sendBtn);
 		
