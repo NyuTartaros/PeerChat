@@ -61,11 +61,11 @@ public class MainWindow {
 		frame.getContentPane().setLayout(null);
 		frame.setBackground(new Color(231, 229, 229));
 		
-		leftPanel = new LeftPanel();
-		frame.add(leftPanel);
-		
 		namecardPanel = new NamecardPanel();
 		chatPanel = new ChatPanel();
+		
+		leftPanel = new LeftPanel();
+		frame.add(leftPanel);
 		
 		splitPane = new JSplitPane();
 		splitPane.setEnabled(false);

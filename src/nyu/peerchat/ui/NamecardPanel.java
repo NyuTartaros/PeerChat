@@ -7,6 +7,7 @@ import nyu.peerchat.entity.Contact;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.swing.JList;
 
@@ -17,8 +18,8 @@ public class NamecardPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 2609658759234297181L;
 	private JScrollPane scrollPane;
-	private JList list;
-	private ArrayList<Contact> contacts = new ArrayList<Contact>();
+	private JList contactList;
+	private Vector<Contact> contacts = new Vector<Contact>();
 	
 	public NamecardPanel() {
 		// TODO Auto-generated constructor stub
@@ -27,17 +28,30 @@ public class NamecardPanel extends JPanel {
 		setBorder(null);
 		setLayout(null);
 		
+		//DEBUG
+		contacts.add(new Contact("Desktop-Lab", "192.168.2.100"));
+		contacts.add(new Contact("My Aliyun", "wiebo.net"));
+		
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 250, 586);
 		scrollPane.setBackground(new Color(221, 221, 222));
 		scrollPane.setBorder(null);
 		add(scrollPane);
 		
-		list = new JList();
-		list.setBounds(0, 0, 250, 586);
-		list.setBackground(new Color(221, 221, 222));
-		list.setBorder(null);
-		scrollPane.add(list);
+		contactList = new JList();
+		contactList.setBounds(0, 0, 250, 586);
+		contactList.setBackground(new Color(221, 221, 222));
+		contactList.setBorder(null);
+		scrollPane.add(contactList);
 		
 	}
+	
+	public void renderContactList(){
+		contactList.setListData(contacts);
+	}
+	
+	public void addContact(Contact contact){
+		contacts.add(contact);
+	}
+	
 }
