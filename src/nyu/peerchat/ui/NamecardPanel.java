@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.util.Vector;
 
 import javax.swing.JList;
+import javax.swing.ListSelectionModel;
 
 public class NamecardPanel extends JPanel {
 
@@ -38,6 +39,7 @@ public class NamecardPanel extends JPanel {
 		add(scrollPane);
 		
 		contactList = new JList();
+		contactList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		contactList.setBounds(0, 0, 250, 586);
 		contactList.setBackground(new Color(221, 221, 222));
 		contactList.setBorder(null);
