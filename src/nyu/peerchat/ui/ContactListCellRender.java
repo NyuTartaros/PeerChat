@@ -18,7 +18,7 @@ public class ContactListCellRender extends JLabel implements ListCellRenderer {
 			   int index, boolean isSelected, boolean cellHasFocus) {
 		String alias = ((Contact)value).getAlias();
 		String ip = ((Contact)value).getIp();
-		setText("<html><body>" + "  " + alias + "<br>" + "  " + ip + "<body></html>");
+		setText("<html><body>" + alias + "<br>" + ip + "<body></html>");
 //		setSize(60, 250);
 		setBackground(new Color(221, 221, 222));
 		setVisible(true);

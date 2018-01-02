@@ -6,7 +6,6 @@ import javax.swing.JScrollPane;
 import nyu.peerchat.entity.Contact;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JList;
