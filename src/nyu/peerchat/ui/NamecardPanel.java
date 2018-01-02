@@ -11,6 +11,8 @@ import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class NamecardPanel extends JPanel {
 
@@ -21,9 +23,9 @@ public class NamecardPanel extends JPanel {
 	private JScrollPane scrollPane;
 	private JList contactList;
 	private Vector<Contact> contacts = new Vector<Contact>();
-	private JFrame mainWindow;
+	private Object mainWindow;
 	
-	public NamecardPanel(JFrame mainWindow) {
+	public NamecardPanel(Object mainWindow) {
 		this.mainWindow = mainWindow;
 		// TODO Auto-generated constructor stub
 		setSize(250, 586);
@@ -49,6 +51,14 @@ public class NamecardPanel extends JPanel {
 		contactList.setCellRenderer(new ContactListCellRender());
 		contactList.setListData(contacts);
 		contactList.setFixedCellHeight(60);
+		contactList.addListSelectionListener(new ListSelectionListener() {
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		scrollPane.add(contactList);
 		
 	}

@@ -67,10 +67,10 @@ public class MainWindow {
 		mainFrame.getContentPane().setLayout(null);
 		mainFrame.setBackground(new Color(231, 229, 229));
 		
-		namecardPanel = new NamecardPanel(mainFrame);
-		chatPanel = new ChatPanel(mainFrame);
+		namecardPanel = new NamecardPanel(this);
+		chatPanel = new ChatPanel(this);
 		
-		leftPanel = new LeftPanel(mainFrame);
+		leftPanel = new LeftPanel(this);
 		mainFrame.getContentPane().add(leftPanel);
 		
 		splitPane = new JSplitPane();

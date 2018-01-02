@@ -15,9 +15,9 @@ public class LeftPanel extends JPanel {
 	private JToolBar toolBar;
 	private JButton chatBtn;
 	private JButton contactsBtn;
-	private JFrame mainWindow;
+	private Object mainWindow;
 	
-	public LeftPanel(JFrame mainWindow){
+	public LeftPanel(Object mainWindow){
 		this.mainWindow = mainWindow;
 		setSize(60,586);
 		setBackground(new Color(42, 43, 46));

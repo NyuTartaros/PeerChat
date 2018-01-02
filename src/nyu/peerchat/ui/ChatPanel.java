@@ -17,9 +17,9 @@ public class ChatPanel extends JPanel{
 	private JSplitPane splitPane;
 	private MessagePanel messagePanel;
 	private EditPanel editPanel;
-	private JFrame mainWindow;
+	private Object mainWindow;
 	
-	public ChatPanel(JFrame mainWindow) {
+	public ChatPanel(Object mainWindow) {
 		this.mainWindow = mainWindow;
 		setBounds(0, 0, 503, 586);
 		setLayout(null);
