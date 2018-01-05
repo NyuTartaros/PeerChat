@@ -1,12 +1,17 @@
 package nyu.peerchat.ui;
 
 import java.awt.Color;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.plaf.SplitPaneUI;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 
+import nyu.peerchat.clientServices.ClientChatService;
 import nyu.peerchat.entity.Contact;
 
 public class ChatPanel extends JPanel{
@@ -21,6 +26,7 @@ public class ChatPanel extends JPanel{
 	private MainWindow mainWindow;
 	
 	private Contact currentContact;
+	private ClientChatService clientChatService;
 	
 	public ChatPanel(MainWindow mainWindow) {
 		this.mainWindow = mainWindow;
@@ -55,6 +61,30 @@ public class ChatPanel extends JPanel{
 		this.currentContact = currentContact;
 		messagePanel.setCurrentContact(currentContact);
 		editPanel.setCurrentContact(currentContact);
+		setClientChatServices(currentContact);
+	}
+	
+	public void setClientChatServices(Contact currentContact){
+		String ip = currentContact.getIp();
+		URL url;
+		try {
+			url = new URL("http://"+ip+":8879/chat?wsdl");
+			QName sName = new QName("http://serverServicesImpl.peerchat.nyu/"
+					, "ServerChatServiceImplService");
+			Service service = Service.create(url, sName);
+			QName pName = new QName("http://serverServicesImpl.peerchat.nyu/"
+					, "ServerChatServiceImplPort");
+			this.clientChatService = service.getPort(pName
+					, ClientChatService.class);
+			editPanel.setClientChatServices(clientChatService);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void setClientChatServices(ClientChatService clientChatService){
+		this.clientChatService = clientChatService;
 	}
 	
 }

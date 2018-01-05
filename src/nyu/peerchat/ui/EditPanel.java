@@ -10,6 +10,7 @@ import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 
+import nyu.peerchat.clientServices.ClientChatService;
 import nyu.peerchat.entity.Contact;
 
 import java.awt.event.MouseAdapter;
@@ -25,6 +26,7 @@ public class EditPanel extends JPanel {
 	private JPanel sendBtnPanel;
 	private JButton sendBtn;
 	private JTextArea textArea;
+	private ClientChatService clientChatService;
 	
 	private Contact currentContact;
 	
@@ -90,6 +92,10 @@ public class EditPanel extends JPanel {
 	
 	public void setCurrentContact(Contact currentContact){
 		this.currentContact = currentContact;
+	}
+	
+	public void setClientChatServices(ClientChatService clientChatService){
+		this.clientChatService = clientChatService;
 	}
 	
 }
