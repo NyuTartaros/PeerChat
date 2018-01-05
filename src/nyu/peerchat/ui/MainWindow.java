@@ -78,7 +78,7 @@ public class MainWindow {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String address = "http://"+localIp+":8080/chat";
+		String address = "http://"+localIp+":8879/chat";
 		Endpoint.publish(address, new ServerChatServiceImpl());
 		
 		mainFrame = new JFrame();
