@@ -14,6 +14,7 @@ import javax.swing.plaf.basic.BasicSplitPaneUI;
 import javax.xml.ws.Endpoint;
 
 import nyu.peerchat.serverServicesImpl.ServerChatServiceImpl;
+import java.awt.Toolkit;
 
 public class MainWindow {
 	
@@ -81,6 +82,8 @@ public class MainWindow {
 		Endpoint.publish(address, new ServerChatServiceImpl());
 		
 		mainFrame = new JFrame();
+		mainFrame.setTitle("PeerChat");
+		mainFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(".\\icons\\bubbles-alt-icon.png"));
 		mainFrame.setResizable(false);
 		mainFrame.setBounds(200,70,820,615);
 //		frame.setLocationRelativeTo(null);

@@ -34,6 +34,7 @@ public class NamecardPanel extends JPanel {
 		
 		//DEBUG
 		contacts.add(new Contact("Desktop-Lab", "192.168.2.100"));
+		contacts.add(new Contact("Laptop-Nyu", "192.168.2.217"));
 		contacts.add(new Contact("My Aliyun", "wiebo.net"));
 		
 		scrollPane = new JScrollPane();
