@@ -7,6 +7,8 @@ import java.awt.Cursor;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 
@@ -15,6 +17,8 @@ import nyu.peerchat.entity.Contact;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JToolBar;
+import javax.swing.ImageIcon;
 
 public class EditPanel extends JPanel {
 	
@@ -26,6 +30,9 @@ public class EditPanel extends JPanel {
 	private JPanel sendBtnPanel;
 	private JButton sendBtn;
 	private JTextArea textArea;
+	private JToolBar chatToolBar;
+	private JButton fileBtn;
+	
 	private ClientChatService clientChatService;
 	
 	private Contact currentContact;
@@ -47,9 +54,24 @@ public class EditPanel extends JPanel {
 				scrollPane.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
 		});
+		
+		chatToolBar = new JToolBar();
+		chatToolBar.setEnabled(false);
+		chatToolBar.setFloatable(false);
+		chatToolBar.setBounds(0, 0, 503, 35);
+		chatToolBar.setBackground(Color.WHITE);
+		add(chatToolBar);
+		
+		fileBtn = new JButton("");
+		ImageIcon fileBtnIcon = new ImageIcon(".\\icons\\folder.png");
+		fileBtnIcon.setImage(fileBtnIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+		fileBtn.setIcon(fileBtnIcon);
+		fileBtn.setBackground(Color.WHITE);
+		chatToolBar.add(fileBtn);
+		
 		scrollPane.setHorizontalScrollBarPolicy(
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(0, 0, 503, 145);
+		scrollPane.setBounds(0, 35, 503, 110);
 		scrollPane.setBackground(Color.WHITE);
 		scrollPane.setBorder(null);
 		add(scrollPane);
@@ -97,5 +119,4 @@ public class EditPanel extends JPanel {
 	public void setClientChatServices(ClientChatService clientChatService){
 		this.clientChatService = clientChatService;
 	}
-	
 }

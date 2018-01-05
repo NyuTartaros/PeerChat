@@ -8,11 +8,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 
 import nyu.peerchat.entity.Contact;
 
 public class ContactListCellRender extends JLabel implements ListCellRenderer {
+	
+	protected static Border noFocusBorder = new EmptyBorder(1, 1, 1, 1);
+	
 	public ContactListCellRender() {
+        super();
+        setOpaque(true);
+        setBorder(noFocusBorder);
 	}
 	
 	@Override

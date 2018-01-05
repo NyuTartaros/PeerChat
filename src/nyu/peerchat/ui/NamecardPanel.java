@@ -61,6 +61,7 @@ public class NamecardPanel extends JPanel {
 				mainWindow.getChatPanel().setCurrentContact(contact);
 			}
 		});
+		scrollPane.repaint();
 		scrollPane.add(contactList);
 		
 	}
