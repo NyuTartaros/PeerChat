@@ -6,7 +6,7 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlMimeType;
 
-@WebService(targetNamespace = "http://serverServices/peerchat/nyu/")  
+@WebService(targetNamespace = "http://serverServices.peerchat.nyu/")  
 public interface ClientChatService {
 	
 	@WebMethod
