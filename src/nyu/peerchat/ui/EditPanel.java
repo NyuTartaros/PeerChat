@@ -19,6 +19,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JToolBar;
 import javax.swing.ImageIcon;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class EditPanel extends JPanel {
 	
@@ -106,11 +108,19 @@ public class EditPanel extends JPanel {
 		add(sendBtnPanel);
 		
 		sendBtn = new JButton("\u53D1\u9001");
+		sendBtn.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				int vk = arg0.getKeyCode();
+				if(vk == KeyEvent.VK_ENTER) {
+					sendMessage(textArea.getText());
+				}
+			}
+		});
 		sendBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				clientChatService.sendMessage(textArea.getText());
-				messagePanel.selfMessage(textArea.getText());
+				sendMessage(textArea.getText());
 			}
 		});
 		sendBtn.setFont(new Font("ËÎÌו", Font.PLAIN, 13));
@@ -127,5 +137,11 @@ public class EditPanel extends JPanel {
 	
 	public void setClientChatServices(ClientChatService clientChatService){
 		this.clientChatService = clientChatService;
+	}
+	
+	private void sendMessage(String message) {
+		clientChatService.sendMessage(textArea.getText());
+		messagePanel.selfMessage(textArea.getText());
+		textArea.setText("");
 	}
 }

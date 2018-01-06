@@ -28,7 +28,7 @@ public class ServerChatServiceImpl implements ServerChatService {
 		// TODO Auto-generated method stub
 		this.message = message;
 		//DEBUG
-		System.out.println(message);
+//		System.out.println(message);
 		mainWindow.newMessage(message);
 		return true;
 	}
