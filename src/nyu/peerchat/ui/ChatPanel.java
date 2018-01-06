@@ -87,4 +87,8 @@ public class ChatPanel extends JPanel{
 		this.clientChatService = clientChatService;
 	}
 	
+	public void newMessage(String message) {
+		messagePanel.newMessage(message);
+	}
+	
 }

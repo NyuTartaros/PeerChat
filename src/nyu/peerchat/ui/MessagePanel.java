@@ -9,6 +9,8 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class MessagePanel extends JPanel {
 	
@@ -21,10 +23,11 @@ public class MessagePanel extends JPanel {
 	private JLabel lblAlias;
 	private JLabel lblIp;
 	private JPanel sentMessagePanel;
+	private JScrollPane sentMessageScrollPane;
+	private JTextArea sentMessageTextArea;
 	
 	private Contact currentContact;
 
-	
 	public MessagePanel() {
 		setBackground(new Color(245, 245, 245));
 		setBounds(0, 0, 503, 400);
@@ -52,11 +55,29 @@ public class MessagePanel extends JPanel {
 		sentMessagePanel.setBackground(new Color(245, 245, 245));
 		sentMessagePanel.setBorder(null);
 		add(sentMessagePanel);
+		sentMessagePanel.setLayout(null);
+		
+		sentMessageScrollPane = new JScrollPane();
+		sentMessageScrollPane.setBounds(0, 0, 503, 330);
+		sentMessageScrollPane.setBackground(new Color(245, 245, 245));
+		sentMessageScrollPane.setBorder(null);
+		sentMessagePanel.add(sentMessageScrollPane);
+		
+		sentMessageTextArea = new JTextArea();
+		sentMessageTextArea.setBounds(0, 0, 503, 330);
+		sentMessageTextArea.setBackground(new Color(245, 245, 245));
+		sentMessageScrollPane.setViewportView(sentMessageTextArea);
 	}
 	
 	public void setCurrentContact(Contact currentContact){
 		this.currentContact = currentContact;
 		this.lblAlias.setText(this.currentContact.getAlias());
 		this.lblIp.setText(this.currentContact.getIp());
+	}
+	
+	public void newMessage(String message) {
+		String ms = sentMessageTextArea.getText();
+		String nowMessage = ms + "<html><body>" + currentContact.getAlias() + ":<br>" + message + "<body></html>";
+		sentMessageTextArea.setText(nowMessage);
 	}
 }
