@@ -2,16 +2,36 @@ package nyu.peerchat.ui;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 
 import nyu.peerchat.entity.Message;
 
 public class MessageList extends JList {
+	
+	private Vector<Message> messages;
+	
+	public MessageList(){
+		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		setCellRenderer(new MessageListCellRender());
+		setBorder(null);
+	}
+	
+	public void setMessages(Vector<Message> messages){
+		this.messages = messages;
+		setListData(messages);
+	}
+	
+	public void newMessage(Message message){
+		messages.add(message);
+		setListData(messages);
+	}
 	
 }
 
