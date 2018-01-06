@@ -64,6 +64,8 @@ public class MessagePanel extends JPanel {
 		sentMessagePanel.add(sentMessageScrollPane);
 		
 		sentMessageTextArea = new JTextArea();
+		sentMessageTextArea.setWrapStyleWord(true);
+		sentMessageTextArea.setLineWrap(true);
 		sentMessageTextArea.setBounds(0, 0, 503, 330);
 		sentMessageTextArea.setBackground(new Color(245, 245, 245));
 		sentMessageScrollPane.setViewportView(sentMessageTextArea);
