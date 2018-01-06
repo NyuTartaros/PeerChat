@@ -32,10 +32,10 @@ public class NamecardPanel extends JPanel {
 		setBorder(null);
 		setLayout(null);
 		
-		//DEBUG
-		contacts.add(new Contact("Desktop-Lab", "192.168.2.100"));
-		contacts.add(new Contact("Laptop-Nyu", "192.168.2.217"));
-//		contacts.add(new Contact("My Aliyun", "wiebo.net"));
+//		//DEBUG
+//		contacts.add(new Contact("Desktop-Lab", "192.168.2.100"));
+//		contacts.add(new Contact("Laptop-Nyu", "10.170.13.77"));
+////		contacts.add(new Contact("My Aliyun", "wiebo.net"));
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 250, 586);
@@ -61,8 +61,8 @@ public class NamecardPanel extends JPanel {
 				mainWindow.getChatPanel().setCurrentContact(contact);
 			}
 		});
-		scrollPane.repaint();
-		scrollPane.add(contactList);
+//		contactList.ensureIndexIsVisible(contacts.size()-1);
+		scrollPane.setViewportView(contactList);
 		
 	}
 	
@@ -70,9 +70,14 @@ public class NamecardPanel extends JPanel {
 		contactList.setListData(contacts);
 	}
 	
+	public void setContacts(Vector<Contact> contacts){
+		this.contacts = contacts;
+		renderContactList();
+	}
+	
 	public void addContact(Contact contact){
 		contacts.add(contact);
-		contactList.setListData(contacts);
+		renderContactList();
 	}
 	
 }

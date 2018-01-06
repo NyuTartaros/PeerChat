@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JSplitPane;
@@ -13,6 +15,8 @@ import javax.swing.plaf.SplitPaneUI;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 import javax.xml.ws.Endpoint;
 
+import nyu.peerchat.entity.Contact;
+import nyu.peerchat.entity.Message;
 import nyu.peerchat.serverServicesImpl.ServerChatServiceImpl;
 import java.awt.Toolkit;
 
@@ -31,6 +35,10 @@ public class MainWindow {
 	private LeftPanel leftPanel;
 	
 	private String localIp;
+	
+	private Vector<Contact> contacts = new Vector<Contact>();
+	private ArrayList<Vector<Message>> messagesList 
+		= new ArrayList<Vector<Message>>();
 
 	/**
 	 * Launch the application.
@@ -70,10 +78,15 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		
+		//DEBUG
+		contacts.add(new Contact("Desktop-Lab", "192.168.2.100"));
+		contacts.add(new Contact("Laptop-Nyu", "10.170.13.77"));
+//		contacts.add(new Contact("My Aliyun", "wiebo.net"));
+		
 		try {
 			localIp = getLocalIp();
 			//DEBUG
-			System.out.println(localIp);
+			System.out.println("Chat server started at: " + localIp);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -83,7 +96,8 @@ public class MainWindow {
 		
 		mainFrame = new JFrame();
 		mainFrame.setTitle("PeerChat");
-		mainFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(".\\icons\\bubbles-alt-icon.png"));
+		mainFrame.setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(".\\icons\\bubbles-alt-icon.png"));
 		mainFrame.setResizable(false);
 		mainFrame.setBounds(200,70,820,615);
 //		frame.setLocationRelativeTo(null);
@@ -93,6 +107,7 @@ public class MainWindow {
 		mainFrame.setBackground(new Color(231, 229, 229));
 		
 		namecardPanel = new NamecardPanel(this);
+		namecardPanel.setContacts(contacts);
 		chatPanel = new ChatPanel(this);
 		
 		leftPanel = new LeftPanel(this);
@@ -130,8 +145,22 @@ public class MainWindow {
 		return InetAddress.getLocalHost().getHostAddress();//获得本机IP  
 	}
 	
-	public void newMessage(String message) {
-		chatPanel.newMessage(message);
+	public void newMessage(Message message) {
+		int index = ipToIndex(message.getSender());
+		Message tmp = message;
+		tmp.setSender(contacts.get(index).getAlias());
+		chatPanel.newMessage(tmp);
+	}
+	
+	public int ipToIndex(String ip){
+		//DEBUG
+//		System.out.println("ipToIndex().ip: " + ip);
+		for(int i=0; i<contacts.size(); i++){
+			if(ip.equals(contacts.get(i).getIp())){
+				return i;
+			}
+		}
+		return -1;
 	}
 	
 }

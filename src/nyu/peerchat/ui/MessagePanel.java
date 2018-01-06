@@ -3,14 +3,18 @@ package nyu.peerchat.ui;
 import javax.swing.JPanel;
 
 import nyu.peerchat.entity.Contact;
+import nyu.peerchat.entity.Message;
 
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.util.Vector;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 
 public class MessagePanel extends JPanel {
 	
@@ -24,7 +28,8 @@ public class MessagePanel extends JPanel {
 	private JLabel lblIp;
 	private JPanel sentMessagePanel;
 	private JScrollPane sentMessageScrollPane;
-	private JTextArea sentMessageTextArea;
+	private MessageList messageList;
+//	private JTextArea sentMessageTextArea;
 	
 	private Contact currentContact;
 
@@ -58,18 +63,24 @@ public class MessagePanel extends JPanel {
 		sentMessagePanel.setLayout(null);
 		
 		sentMessageScrollPane = new JScrollPane();
+		sentMessageScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		sentMessageScrollPane.setBounds(0, 0, 503, 330);
 		sentMessageScrollPane.setBackground(new Color(245, 245, 245));
 		sentMessageScrollPane.setBorder(null);
 		sentMessagePanel.add(sentMessageScrollPane);
 		
-		sentMessageTextArea = new JTextArea();
-		sentMessageTextArea.setEditable(false);
-		sentMessageTextArea.setWrapStyleWord(true);
-		sentMessageTextArea.setLineWrap(true);
-		sentMessageTextArea.setBounds(0, 0, 503, 330);
-		sentMessageTextArea.setBackground(new Color(245, 245, 245));
-		sentMessageScrollPane.setViewportView(sentMessageTextArea);
+		messageList = new MessageList();
+		messageList.setBounds(0, 0, 503, 330);
+		messageList.setBackground(new Color(245, 245, 245));
+		sentMessageScrollPane.setViewportView(messageList);
+		
+//		sentMessageTextArea = new JTextArea();
+//		sentMessageTextArea.setEditable(false);
+//		sentMessageTextArea.setWrapStyleWord(true);
+//		sentMessageTextArea.setLineWrap(true);
+//		sentMessageTextArea.setBounds(0, 0, 503, 330);
+//		sentMessageTextArea.setBackground(new Color(245, 245, 245));
+//		sentMessageScrollPane.setViewportView(sentMessageTextArea);
 	}
 	
 	public void setCurrentContact(Contact currentContact){
@@ -78,15 +89,16 @@ public class MessagePanel extends JPanel {
 		this.lblIp.setText(this.currentContact.getIp());
 	}
 	
-	public void newMessage(String message) {
-		String ms = sentMessageTextArea.getText();
-		String nowMessage = ms + currentContact.getAlias() + ":\n\r    " + message + "\n\r\n";
-		sentMessageTextArea.setText(nowMessage);
+	public void setCurrentMessages(Vector<Message> messages){
+		messageList.setMessages(messages);
+	}
+	
+	public void newMessage(Message message) {
+		messageList.newMessage(message);
 	}
 	
 	public void selfMessage(String message) {
-		String ms = sentMessageTextArea.getText();
-		String nowMessage = ms + "me:\n\r    " + message + "\n\r\n";
-		sentMessageTextArea.setText(nowMessage);
+		Message tmp = new Message("me", message);
+		messageList.newMessage(tmp);
 	}
 }

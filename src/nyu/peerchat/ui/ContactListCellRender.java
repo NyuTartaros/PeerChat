@@ -32,8 +32,7 @@ public class ContactListCellRender extends JLabel implements ListCellRenderer {
 		ImageIcon icon = new ImageIcon("./icons/contacts (1).png");
 		icon.setImage(icon.getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));
 		setIcon(icon);
-		setBackground(new Color(221, 221, 222));
-		setVisible(true);
+//		setVisible(true);
 		return this;
 	}
 	

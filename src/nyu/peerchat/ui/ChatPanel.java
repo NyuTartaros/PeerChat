@@ -13,6 +13,7 @@ import javax.xml.ws.Service;
 
 import nyu.peerchat.clientServices.ClientChatService;
 import nyu.peerchat.entity.Contact;
+import nyu.peerchat.entity.Message;
 
 public class ChatPanel extends JPanel{
 	
@@ -88,7 +89,7 @@ public class ChatPanel extends JPanel{
 		this.clientChatService = clientChatService;
 	}
 	
-	public void newMessage(String message) {
+	public void newMessage(Message message) {
 		messagePanel.newMessage(message);
 	}
 	
