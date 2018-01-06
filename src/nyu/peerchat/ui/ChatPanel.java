@@ -35,7 +35,8 @@ public class ChatPanel extends JPanel{
 		setBorder(null);
 		
 		messagePanel = new MessagePanel();
-		editPanel = new EditPanel();
+		
+		editPanel = new EditPanel(messagePanel);
 		
 		splitPane = new JSplitPane();
 		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);

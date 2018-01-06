@@ -77,7 +77,13 @@ public class MessagePanel extends JPanel {
 	
 	public void newMessage(String message) {
 		String ms = sentMessageTextArea.getText();
-		String nowMessage = ms + currentContact.getAlias() + ":\n\t" + message + "\n";
+		String nowMessage = ms + currentContact.getAlias() + ":\n\r    " + message + "\n\r\n";
+		sentMessageTextArea.setText(nowMessage);
+	}
+	
+	public void selfMessage(String message) {
+		String ms = sentMessageTextArea.getText();
+		String nowMessage = ms + "me:\n\r    " + message + "\n\r\n";
 		sentMessageTextArea.setText(nowMessage);
 	}
 }

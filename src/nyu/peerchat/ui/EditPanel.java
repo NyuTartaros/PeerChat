@@ -34,10 +34,12 @@ public class EditPanel extends JPanel {
 	private JButton fileBtn;
 	
 	private ClientChatService clientChatService;
+	private MessagePanel messagePanel;
 	
 	private Contact currentContact;
 	
-	public EditPanel(){
+	public EditPanel(MessagePanel messagePanel){
+		this.messagePanel = messagePanel;
 		setBackground(Color.WHITE);
 		setBounds(0, 0, 503, 185);
 		setBorder(null);
@@ -108,6 +110,7 @@ public class EditPanel extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				clientChatService.sendMessage(textArea.getText());
+				messagePanel.selfMessage(textArea.getText());
 			}
 		});
 		sendBtn.setFont(new Font("ËÎÌו", Font.PLAIN, 13));
