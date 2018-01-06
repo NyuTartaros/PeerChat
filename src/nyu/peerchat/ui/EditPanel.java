@@ -104,6 +104,12 @@ public class EditPanel extends JPanel {
 		add(sendBtnPanel);
 		
 		sendBtn = new JButton("\u53D1\u9001");
+		sendBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				clientChatService.sendMessage(textArea.getText());
+			}
+		});
 		sendBtn.setFont(new Font("ËÎÌו", Font.PLAIN, 13));
 		sendBtn.setForeground(Color.GRAY);
 		sendBtn.setBounds(412, 5, 65, 29);
