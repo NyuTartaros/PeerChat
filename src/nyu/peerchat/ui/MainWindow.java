@@ -79,7 +79,7 @@ public class MainWindow {
 			e.printStackTrace();
 		}
 		String address = "http://"+localIp+":8879/chat";
-		Endpoint.publish(address, new ServerChatServiceImpl());
+		Endpoint.publish(address, new ServerChatServiceImpl(this));
 		
 		mainFrame = new JFrame();
 		mainFrame.setTitle("PeerChat");
@@ -128,6 +128,10 @@ public class MainWindow {
 	
 	public String getLocalIp() throws UnknownHostException{
 		return InetAddress.getLocalHost().getHostAddress();//获得本机IP  
+	}
+	
+	public void newMessage(String message) {
+		chatPanel.newMessage(message);
 	}
 	
 }
