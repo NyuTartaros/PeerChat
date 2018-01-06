@@ -18,6 +18,8 @@ public class LeftPanel extends JPanel {
 	private MainWindow mainWindow;
 	private JButton headBtn;
 	private JLabel lblEmpty;
+	private JButton settingsBtn;
+	private JLabel lblEmpty2;
 	
 	public LeftPanel(MainWindow mainWindow){
 		this.mainWindow = mainWindow;
@@ -28,12 +30,12 @@ public class LeftPanel extends JPanel {
 		toolBar = new JToolBar();
 		toolBar.setOrientation(SwingConstants.VERTICAL);
 		toolBar.setFloatable(false);
-		toolBar.setBounds(10, 10, 40, 408);
+		toolBar.setBounds(10, 10, 40, 566);
 		toolBar.setBackground(new Color(42, 43, 46));
 		add(toolBar);
 		
 		headBtn = new JButton("");
-		ImageIcon icon = new ImageIcon("./icons/peachHead.jpg");
+		ImageIcon icon = new ImageIcon("./icons/peachHead-icon.png");
 		icon.setImage(icon.getImage().getScaledInstance(40, 38, Image.SCALE_DEFAULT));
 		headBtn.setIcon(icon);
 		headBtn.setBackground(new Color(42, 43, 46));
@@ -55,5 +57,16 @@ public class LeftPanel extends JPanel {
 		contactsBtn.setBackground(new Color(42, 43, 46));
 		contactsBtn.setSize(40, 38);
 		toolBar.add(contactsBtn);
+		
+		lblEmpty2 = new JLabel("<html><br><br><br><br><br><br><br><br>"
+				+ "<br><br><br><br><br><br><br><br><br><br><br><br>"
+				+ "<br><br><br><br><br></html>");
+		toolBar.add(lblEmpty2);
+		
+		settingsBtn = new JButton("");
+		settingsBtn.setIcon(new ImageIcon(".\\icons\\settings.png"));
+		settingsBtn.setBackground(new Color(42, 43, 46));
+		settingsBtn.setSize(40, 38);
+		toolBar.add(settingsBtn);
 	}
 }

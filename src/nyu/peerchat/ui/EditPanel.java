@@ -68,7 +68,7 @@ public class EditPanel extends JPanel {
 		
 		fileBtn = new JButton("");
 		ImageIcon fileBtnIcon = new ImageIcon(".\\icons\\folder.png");
-		fileBtnIcon.setImage(fileBtnIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+//		fileBtnIcon.setImage(fileBtnIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
 		fileBtn.setIcon(fileBtnIcon);
 		fileBtn.setBackground(Color.WHITE);
 		chatToolBar.add(fileBtn);
