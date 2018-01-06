@@ -83,8 +83,8 @@ public class EditPanel extends JPanel {
 		textArea = new JTextArea();
 		textArea.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent e) {
-				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER && e.isControlDown()) {
 					sendMessage(textArea.getText());
 				}
 			}
