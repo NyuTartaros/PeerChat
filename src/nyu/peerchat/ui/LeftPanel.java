@@ -36,10 +36,10 @@ public class LeftPanel extends JPanel {
 		
 		headBtn = new JButton("");
 		ImageIcon icon = new ImageIcon("./icons/peachHead-icon.png");
-		icon.setImage(icon.getImage().getScaledInstance(40, 38, Image.SCALE_DEFAULT));
+//		icon.setImage(icon.getImage().getScaledInstance(40, 38, Image.SCALE_DEFAULT));
 		headBtn.setIcon(icon);
 		headBtn.setBackground(new Color(42, 43, 46));
-		headBtn.setSize(40,38);
+//		headBtn.setSize(40,38);
 		headBtn.setBorder(null);
 		toolBar.add(headBtn);
 		
