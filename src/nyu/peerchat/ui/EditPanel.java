@@ -81,6 +81,14 @@ public class EditPanel extends JPanel {
 		add(scrollPane);
 		
 		textArea = new JTextArea();
+		textArea.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					sendMessage(textArea.getText());
+				}
+			}
+		});
 		textArea.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
@@ -108,15 +116,6 @@ public class EditPanel extends JPanel {
 		add(sendBtnPanel);
 		
 		sendBtn = new JButton("\u53D1\u9001");
-		sendBtn.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-				int vk = arg0.getKeyCode();
-				if(vk == KeyEvent.VK_ENTER) {
-					sendMessage(textArea.getText());
-				}
-			}
-		});
 		sendBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
