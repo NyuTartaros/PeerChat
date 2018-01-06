@@ -35,16 +35,19 @@ class MessageListCellRender extends JLabel implements ListCellRenderer{
 		String sender = ((Message)value).getSender();
 		String message = ((Message)value).getMessage();
 		message = "<html>" + sender +":<br>" + message + "</html>";
+		int iconTextGap = 4;
 		if( sender.equals("me")){
 			setText(message);
 			setIcon(new ImageIcon("./icons/peachHead-icon.png"));
 			setHorizontalTextPosition(SwingConstants.LEFT);
 			setHorizontalAlignment(SwingConstants.RIGHT);
+			setIconTextGap(iconTextGap);
 		}else{
 			setText(message);
 			setIcon(new ImageIcon("./icons/contacts (1) icon.png"));
 			setHorizontalTextPosition(SwingConstants.RIGHT);
 			setHorizontalAlignment(SwingConstants.LEFT);
+			setIconTextGap(iconTextGap);
 		}
 		return null;
 	}
