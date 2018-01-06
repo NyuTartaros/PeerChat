@@ -80,7 +80,7 @@ public class MainWindow {
 		
 		//DEBUG
 		contacts.add(new Contact("Desktop-Lab", "192.168.2.100"));
-		contacts.add(new Contact("Laptop-Nyu", "10.170.13.77"));
+		contacts.add(new Contact("Laptop-Nyu", "192.168.2.217"));
 //		contacts.add(new Contact("My Aliyun", "wiebo.net"));
 		
 		try {
