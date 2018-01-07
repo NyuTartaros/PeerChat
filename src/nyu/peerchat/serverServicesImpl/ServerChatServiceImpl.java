@@ -56,7 +56,7 @@ public class ServerChatServiceImpl implements ServerChatService {
 		// TODO Auto-generated method stub
 		this.fileData = fileData;
 		//DEBUG
-		System.out.println("in ServerChatServiceImpl.sendFile(), filename= " + filename);
+//		System.out.println("in ServerChatServiceImpl.sendFile(), filename= " + filename);
 		try {
 			mainWindow.receiveFile(filename, fileData);
 		} catch (IOException e) {

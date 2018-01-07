@@ -181,9 +181,9 @@ public class MainWindow {
 	public void receiveFile(String filename, DataHandler fileHandler) throws IOException {
 		JFileChooser filechooser = new JFileChooser();
 		filechooser.setDialogTitle("接收文件");
-		filechooser.setFileSelectionMode(JFileChooser.SAVE_DIALOG);
+		filechooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 		//DEBUG
-		System.out.println("in MainWindow.receiveFile(), filename= " + filename);
+//		System.out.println("in MainWindow.receiveFile(), filename= " + filename);
 		filechooser.setSelectedFile(new File(filename));
 		//setFileSelectionMode()设置 JFileChooser，以允许用户只选择文件、只选择目录，或者可选择文件和目录。
 		int result = filechooser.showSaveDialog(mainFrame);
