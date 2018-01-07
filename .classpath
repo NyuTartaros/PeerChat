@@ -6,6 +6,6 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="F:/GitHub/PeerChat/lib/rt.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-workspace/PeerChat/lib/rt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

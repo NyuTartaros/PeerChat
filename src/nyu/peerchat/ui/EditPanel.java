@@ -6,11 +6,16 @@ import java.awt.Cursor;
 
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
-import java.awt.Image;
 
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
+
+
+import java.io.File;
 
 import nyu.peerchat.clientServices.ClientChatService;
 import nyu.peerchat.entity.Contact;
@@ -18,6 +23,8 @@ import nyu.peerchat.entity.Contact;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JToolBar;
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
 import javax.swing.ImageIcon;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -67,6 +74,23 @@ public class EditPanel extends JPanel {
 		add(chatToolBar);
 		
 		fileBtn = new JButton("");
+		fileBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				JFileChooser fileChooser = new JFileChooser("发送文件");
+				fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				int result = fileChooser.showOpenDialog(messagePanel);
+				if(result == JFileChooser.CANCEL_OPTION) {
+					return;
+				}
+				File filename = fileChooser.getSelectedFile();
+				if(filename.canRead()) {
+					clientChatService.sendFile(new DataHandler(new FileDataSource(filename)));
+				}else {
+					JOptionPane.showMessageDialog(messagePanel, "文件无法打开。");
+				}
+			}
+		});
 		ImageIcon fileBtnIcon = new ImageIcon(".\\icons\\folder.png");
 //		fileBtnIcon.setImage(fileBtnIcon.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
 		fileBtn.setIcon(fileBtnIcon);

@@ -1,12 +1,12 @@
 package nyu.peerchat.serverServicesImpl;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
 
 import javax.activation.DataHandler;
 import javax.annotation.Resource;
 import javax.jws.WebParam;
 import javax.jws.WebService;
-import javax.swing.JFrame;
 import javax.xml.bind.annotation.XmlMimeType;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
@@ -55,6 +55,14 @@ public class ServerChatServiceImpl implements ServerChatService {
 	@WebParam(name="fileData") DataHandler fileData) {
 		// TODO Auto-generated method stub
 		this.fileData = fileData;
+		//DEBUG
+		System.out.println(fileData.getName());
+		try {
+			mainWindow.receiveFile(fileData);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return true;
 	}
 	

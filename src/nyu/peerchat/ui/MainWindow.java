@@ -6,8 +6,13 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.logging.FileHandler;
 
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -19,6 +24,14 @@ import nyu.peerchat.entity.Contact;
 import nyu.peerchat.entity.Message;
 import nyu.peerchat.serverServicesImpl.ServerChatServiceImpl;
 import java.awt.Toolkit;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class MainWindow {
 	
@@ -27,6 +40,8 @@ public class MainWindow {
 	 * @version 0.1-dev 
 	 * @author NyuTartaros
 	 */
+	
+	private static final int BUFFER_SIZE = 1024*1024*20;
 
 	private JFrame mainFrame;
 	private JSplitPane splitPane;
@@ -161,6 +176,33 @@ public class MainWindow {
 			}
 		}
 		return -1;
+	}
+	
+	public void receiveFile(DataHandler fileHandler) throws IOException {
+		JFileChooser filechooser = new JFileChooser("接收文件");
+		filechooser.setFileSelectionMode(JFileChooser.SAVE_DIALOG);
+		filechooser.setSelectedFile(new File(fileHandler.getName()));
+		//setFileSelectionMode()设置 JFileChooser，以允许用户只选择文件、只选择目录，或者可选择文件和目录。
+		int result = filechooser.showSaveDialog(mainFrame);
+		
+		if(result == JFileChooser.CANCEL_OPTION){
+        	return ;
+		}
+		File filename = filechooser.getSelectedFile();
+		if(!filename.canWrite()) {
+			JOptionPane.showMessageDialog(mainFrame, "无法写入.");
+		}
+
+		InputStream in = fileHandler.getInputStream();
+		OutputStream out = new FileOutputStream(filename);
+		byte[] buf = new byte[BUFFER_SIZE];
+		int read;
+		while( (read=in.read(buf))!=-1 ) {
+			out.write(buf,0,read);
+			out.flush();
+		}
+		in.close();
+		out.close();
 	}
 	
 }
