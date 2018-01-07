@@ -96,7 +96,14 @@ public class MainWindow {
 		//DEBUG
 		contacts.add(new Contact("Desktop-Lab", "192.168.2.100"));
 		contacts.add(new Contact("Laptop-Nyu", "192.168.2.217"));
-//		contacts.add(new Contact("My Aliyun", "wiebo.net"));
+		contacts.add(new Contact("My Aliyun", "wiebo.net"));
+		contacts.add(new Contact("隔壁小姐姐一号", "192.168.2.178"));
+		contacts.add(new Contact("隔壁小姐姐二号", "192.168.1.197"));
+		contacts.add(new Contact("隔壁小姐姐三号", "192.168.1.121"));
+		contacts.add(new Contact("漂亮女老师", "192.168.1.203"));
+		contacts.add(new Contact("校医院女护士", "192.168.1.243"));
+		contacts.add(new Contact("对门情敌", "192.168.2.103"));
+		contacts.add(new Contact("门卫大爷", "192.168.1.110"));
 		
 		try {
 			localIp = getLocalIp();
