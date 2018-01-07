@@ -77,7 +77,8 @@ public class EditPanel extends JPanel {
 		fileBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				JFileChooser fileChooser = new JFileChooser("发送文件");
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setDialogTitle("发送文件");
 				fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 				int result = fileChooser.showOpenDialog(messagePanel);
 				if(result == JFileChooser.CANCEL_OPTION) {
@@ -85,7 +86,7 @@ public class EditPanel extends JPanel {
 				}
 				File filename = fileChooser.getSelectedFile();
 				if(filename.canRead()) {
-					clientChatService.sendFile(new DataHandler(new FileDataSource(filename)));
+					clientChatService.sendFile(filename.getName(), new DataHandler(new FileDataSource(filename)));
 				}else {
 					JOptionPane.showMessageDialog(messagePanel, "文件无法打开。");
 				}

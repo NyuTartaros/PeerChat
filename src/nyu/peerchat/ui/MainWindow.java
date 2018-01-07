@@ -178,23 +178,28 @@ public class MainWindow {
 		return -1;
 	}
 	
-	public void receiveFile(DataHandler fileHandler) throws IOException {
-		JFileChooser filechooser = new JFileChooser("接收文件");
+	public void receiveFile(String filename, DataHandler fileHandler) throws IOException {
+		JFileChooser filechooser = new JFileChooser();
+		filechooser.setDialogTitle("接收文件");
 		filechooser.setFileSelectionMode(JFileChooser.SAVE_DIALOG);
-		filechooser.setSelectedFile(new File(fileHandler.getName()));
+		//DEBUG
+		System.out.println("in MainWindow.receiveFile(), filename= " + filename);
+		filechooser.setSelectedFile(new File(filename));
 		//setFileSelectionMode()设置 JFileChooser，以允许用户只选择文件、只选择目录，或者可选择文件和目录。
 		int result = filechooser.showSaveDialog(mainFrame);
 		
 		if(result == JFileChooser.CANCEL_OPTION){
         	return ;
 		}
-		File filename = filechooser.getSelectedFile();
-		if(!filename.canWrite()) {
-			JOptionPane.showMessageDialog(mainFrame, "无法写入.");
-		}
+		File file = filechooser.getSelectedFile();
+		//TODO 未能修复的BUG：filename.canWrite判断不正常
+//		if(!filename.canWrite()) {
+//			JOptionPane.showMessageDialog(mainFrame, "无法写入.");
+//			return;
+//		}
 
 		InputStream in = fileHandler.getInputStream();
-		OutputStream out = new FileOutputStream(filename);
+		OutputStream out = new FileOutputStream(file);
 		byte[] buf = new byte[BUFFER_SIZE];
 		int read;
 		while( (read=in.read(buf))!=-1 ) {

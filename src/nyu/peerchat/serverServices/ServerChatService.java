@@ -15,7 +15,7 @@ public interface ServerChatService {
 	public boolean sendMessage(@WebParam(name="message") String message);
 	
 	@WebMethod
-	public boolean sendFile(@XmlMimeType("*/*")
-	@WebParam(name="fileData") DataHandler fileData);
+	public boolean sendFile(@WebParam(name="filename") String filename
+			, @XmlMimeType("*/*") @WebParam(name="fileData") DataHandler fileData);
 
 }

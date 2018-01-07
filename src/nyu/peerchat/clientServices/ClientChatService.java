@@ -13,7 +13,7 @@ public interface ClientChatService {
 	public boolean sendMessage(@WebParam(name="message") String message);
 	
 	@WebMethod
-	public boolean sendFile(@XmlMimeType("*/*")
+	public boolean sendFile(@WebParam(name="filename") String filename, @XmlMimeType("*/*")
 	@WebParam(name="fileData") DataHandler fileData);
 	
 }

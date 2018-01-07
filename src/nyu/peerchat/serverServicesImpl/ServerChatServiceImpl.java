@@ -51,14 +51,14 @@ public class ServerChatServiceImpl implements ServerChatService {
 	}
 
 	@Override
-	public boolean sendFile(@XmlMimeType("*/*")
+	public boolean sendFile(@WebParam(name="filename") String filename, @XmlMimeType("*/*")
 	@WebParam(name="fileData") DataHandler fileData) {
 		// TODO Auto-generated method stub
 		this.fileData = fileData;
 		//DEBUG
-		System.out.println(fileData.getName());
+		System.out.println("in ServerChatServiceImpl.sendFile(), filename= " + filename);
 		try {
-			mainWindow.receiveFile(fileData);
+			mainWindow.receiveFile(filename, fileData);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
